@@ -1,10 +1,18 @@
 # Rebound by Bouncer
 
-The website for Rebound, the tab in [Bouncer](https://bouncer-ai.pages.dev) where you make your own bots. Live at **https://rebound.web.app**.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/assets/screens/rebound-obsidian.jpg" />
+    <source media="(prefers-color-scheme: light)" srcset="public/assets/screens/rebound-light.jpg" />
+    <img src="public/assets/screens/rebound-light.jpg" alt="The Rebound gallery with the five starter bots: Rebound, Pip, Juno, Sage and Quill" width="800" />
+  </picture>
+</p>
 
-- Rebound: https://rebound.web.app
-- Bouncer: https://bouncer-ai.pages.dev
-- Installers: https://getbouncer.pages.dev
+<p align="center">
+  <a href="https://rebound.web.app">Rebound</a> · <a href="https://bouncer-ai.pages.dev">Bouncer</a> · <a href="https://getbouncer.pages.dev">Installers</a>
+</p>
+
+The website for Rebound, the tab in [Bouncer](https://bouncer-ai.pages.dev) where you make your own bots. Live at **https://rebound.web.app**.
 
 - `public/index.html`: the showcase page (starter bots, a face picker, screenshots, install commands).
 - `public/docs.html`: the Rebound docs, served at `/docs`.
