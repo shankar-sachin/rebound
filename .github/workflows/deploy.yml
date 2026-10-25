@@ -1,0 +1,46 @@
+# Deploys public/ to Firebase Hosting (project bouncer-af456, site rebound).
+# Pushes to main go live at https://rebound.web.app; pull requests get a temporary preview URL.
+# Needs the FIREBASE_SERVICE_ACCOUNT_BOUNCER_AF456 secret (a service account key JSON, see README).
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Fork PRs can't read secrets, so they skip the preview.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for the Firebase secret
+        id: secret
+        env:
+          SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BOUNCER_AF456 }}
+        run: |
+          if [ -n "$SA" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "::warning::FIREBASE_SERVICE_ACCOUNT_BOUNCER_AF456 is not set, so nothing was deployed. See README."; fi
+      - name: Deploy a preview
+        if: steps.secret.outputs.ok == 'true' && github.event_name == 'pull_request'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BOUNCER_AF456 }}
+          projectId: bouncer-af456
+          target: rebound
+          expires: 7d
+      - name: Deploy to rebound.web.app
+        if: steps.secret.outputs.ok == 'true' && github.event_name == 'push'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BOUNCER_AF456 }}
+          projectId: bouncer-af456
+          target: rebound
+          channelId: live
