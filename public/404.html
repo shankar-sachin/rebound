@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('rebound-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&display=swap" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script src="/assets/blob.js" defer></script>
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <main id="main" class="not-found">
+    <svg class="not-found-face" data-bot="90817 sky sleepy" role="img" aria-label="Sage, looking sleepy" focusable="false"></svg>
+    <h1>Nothing here.</h1>
+    <p class="lede">This page bounced. Try the home page or the docs.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="/">Home</a>
+      <a class="btn btn-lg" href="/docs">Docs</a>
+    </div>
+  </main>
+</body>
+</html>

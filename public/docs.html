@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rebound docs</title>
+  <meta name="description" content="How to use Rebound in Bouncer: the starter bots, making a bot, faces, personalities, models, chats, and editing or resetting bots." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="canonical" href="https://rebound.web.app/docs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bouncer Rebound" />
+  <meta property="og:title" content="Rebound docs" />
+  <meta property="og:description" content="Make, chat with and edit your own bots in Bouncer." />
+  <meta property="og:url" content="https://rebound.web.app/docs" />
+  <meta property="og:image" content="https://rebound.web.app/assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('rebound-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/blob.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Bouncer Rebound home">
+        <svg class="brand-mark" data-bot="bouncer slate round" data-still="1" width="28" height="28" aria-hidden="true" focusable="false"></svg>
+        <span>Rebound <span class="brand-by">by Bouncer</span></span>
+      </a>
+      <nav class="site-nav" aria-label="main">
+        <a href="./#bots">bots</a>
+        <a href="./#make">make one</a>
+        <a href="docs" aria-current="page">docs</a>
+        <a href="./#download">download</a>
+      </nav>
+      <div class="header-tools">
+        <button class="btn btn-ghost btn-icon" type="button" id="theme-toggle" aria-label="switch to light theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-cta" href="https://bouncer-ai.pages.dev/">Get Bouncer</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap docs-layout">
+    <nav class="docs-toc" aria-label="on this page">
+      <span class="label">on this page</span>
+      <ol>
+        <li><a href="#start">Get started</a></li>
+        <li><a href="#starters">The starter bots</a></li>
+        <li><a href="#make">Make a bot</a></li>
+        <li><a href="#face">Choose a face</a></li>
+        <li><a href="#personality">Write a personality</a></li>
+        <li><a href="#model">Creativity and model</a></li>
+        <li><a href="#chat">Chat with a bot</a></li>
+        <li><a href="#manage">Edit, duplicate, reset, delete</a></li>
+        <li><a href="#privacy">Offline and privacy</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ol>
+    </nav>
+
+    <main id="main" class="docs-body">
+      <header class="docs-head">
+        <span class="eyebrow">docs</span>
+        <h1>Rebound</h1>
+        <p class="lede">Rebound is the tab in Bouncer where you make and chat with bots. A bot is a named persona with its own face, personality, greeting and preferred model. It runs on the models on your computer.</p>
+      </header>
+
+      <section id="start" aria-labelledby="start-title">
+        <h2 id="start-title">Get started</h2>
+        <ol class="steps">
+          <li>
+            <strong>Install Bouncer.</strong> Run one line in a terminal, or download an installer from <a href="https://bouncer-ai.pages.dev/#download">bouncer-ai.pages.dev</a>.
+            <div class="cmd">
+              <code>curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh</code>
+              <button class="btn btn-sm copy" type="button" data-copy="curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh" aria-label="copy the macOS and Linux install command">copy</button>
+            </div>
+            <div class="cmd">
+              <code>irm https://bouncer-ai.pages.dev/install.ps1 | iex</code>
+              <button class="btn btn-sm copy" type="button" data-copy="irm https://bouncer-ai.pages.dev/install.ps1 | iex" aria-label="copy the Windows install command">copy</button>
+            </div>
+            <p class="hint">The first is for macOS and Linux, the second for Windows PowerShell.</p>
+          </li>
+          <li><strong>Download a model.</strong> The first launch helps you pick one that fits your machine. Any GGUF model from Hugging Face works. See <a href="https://bouncer-ai.pages.dev/docs.html#/models">Models</a> in the Bouncer docs.</li>
+          <li><strong>Open Rebound.</strong> Click its icon in the activity bar, or press <kbd>⌘</kbd> <kbd>4</kbd> on macOS or <kbd>Ctrl</kbd> <kbd>4</kbd> on Windows and Linux.</li>
+          <li><strong>Pick a bot and say hi.</strong> Click a card to open the bot's room, then start a chat.</li>
+        </ol>
+      </section>
+
+      <section id="starters" aria-labelledby="starters-title">
+        <h2 id="starters-title">The starter bots</h2>
+        <p>Bouncer comes with five bots. You can chat with them as they are, change them, or reset them to how they shipped.</p>
+        <ul class="docs-bots">
+          <li><svg data-bot="bouncer slate round" aria-hidden="true" focusable="false"></svg><span><strong>Rebound</strong> A plain, helpful assistant. Clear answers, no persona.</span></li>
+          <li><svg data-bot="1138 mint happy" aria-hidden="true" focusable="false"></svg><span><strong>Pip</strong> Curious and upbeat. Explains things simply.</span></li>
+          <li><svg data-bot="7421 coral wink" aria-hidden="true" focusable="false"></svg><span><strong>Juno</strong> Witty, a little sarcastic, straight answers.</span></li>
+          <li><svg data-bot="90817 sky round" aria-hidden="true" focusable="false"></svg><span><strong>Sage</strong> Calm and thoughtful. Good for thinking things through.</span></li>
+          <li><svg data-bot="31337 grape wide" aria-hidden="true" focusable="false"></svg><span><strong>Quill</strong> Your creative writing partner: ideas, drafts, rhymes.</span></li>
+        </ul>
+      </section>
+
+      <section id="make" aria-labelledby="make-title">
+        <h2 id="make-title">Make a bot</h2>
+        <p>Click <strong>New bot</strong> at the top of Rebound, or <strong>Make a bot</strong> in the last tile. The builder has the face on the left and the personality on the right.</p>
+        <figure class="shot">
+          <picture><source media="(prefers-color-scheme: dark)" data-scheme="dark" srcset="assets/screens/rebound-builder-obsidian.jpg" /><source media="(prefers-color-scheme: light)" data-scheme="light" srcset="assets/screens/rebound-builder-light.jpg" /><img src="assets/screens/rebound-builder-light.jpg" width="2880" height="1800" loading="lazy" alt="The bot builder with a face preview and the personality fields" /></picture>
+          <figcaption>the builder</figcaption>
+        </figure>
+        <p>Click <strong>Create bot</strong> to save a new bot, or <strong>Save</strong> when you edit one. <strong>Cancel</strong> closes the builder without saving.</p>
+      </section>
+
+      <section id="face" aria-labelledby="face-title">
+        <h2 id="face-title">Choose a face</h2>
+        <p>Every face is a soft blob drawn from a seed, so a bot keeps its exact shape. Under the preview:</p>
+        <dl class="defs">
+          <dt>color</dt><dd>eight colors: mint, coral, sky, lemon, grape, peach, rose and slate.</dd>
+          <dt>eyes</dt><dd>seven styles: round, happy, sleepy, wink, wide, dots and shades.</dd>
+          <dt>shuffle shape</dt><dd>keeps the color and eyes and draws a new shape.</dd>
+          <dt>surprise me</dt><dd>picks a whole new random face.</dd>
+        </dl>
+        <div class="eye-sheet" aria-label="the seven eye styles" role="img">
+          <figure><svg data-bot="1138 mint round" aria-hidden="true" focusable="false"></svg><figcaption>round</figcaption></figure>
+          <figure><svg data-bot="7421 coral happy" aria-hidden="true" focusable="false"></svg><figcaption>happy</figcaption></figure>
+          <figure><svg data-bot="90817 sky sleepy" aria-hidden="true" focusable="false"></svg><figcaption>sleepy</figcaption></figure>
+          <figure><svg data-bot="20481 lemon wink" aria-hidden="true" focusable="false"></svg><figcaption>wink</figcaption></figure>
+          <figure><svg data-bot="31337 grape wide" aria-hidden="true" focusable="false"></svg><figcaption>wide</figcaption></figure>
+          <figure><svg data-bot="55021 peach dots" aria-hidden="true" focusable="false"></svg><figcaption>dots</figcaption></figure>
+          <figure><svg data-bot="77003 rose shades" aria-hidden="true" focusable="false"></svg><figcaption>shades</figcaption></figure>
+        </div>
+        <p>Faces breathe and blink in the app. If your system asks for reduced motion, they hold still. You can also try faces on the <a href="./#make">home page</a>.</p>
+      </section>
+
+      <section id="personality" aria-labelledby="personality-title">
+        <h2 id="personality-title">Write a personality</h2>
+        <dl class="defs">
+          <dt>name</dt><dd>required. Keep it short, such as Pip.</dd>
+          <dt>tagline</dt><dd>a few words about what the bot is like. It shows on the bot's card.</dd>
+          <dt>personality</dt><dd>required. Who the bot is, how it talks and what it cares about. It becomes the bot's system prompt, after "You are &lt;name&gt;."</dd>
+          <dt>start from</dt><dd>fills in a starting personality you can edit: friendly, witty, calm, creative, coach or tutor.</dd>
+          <dt>traits</dt><dd>up to eight short words, such as <code>curious</code> or <code>patient</code>. Type one and press <kbd>Enter</kbd> or <kbd>,</kbd>. <kbd>Backspace</kbd> in an empty field removes the last one.</dd>
+          <dt>greeting</dt><dd>the first message the bot says in a new chat. Leave it empty for none.</dd>
+        </dl>
+        <div class="tip card">
+          <h3>Tips for a personality that holds up</h3>
+          <ul>
+            <li>Say how it should answer, not only what it is like: "Give the straight answer first, then one light joke."</li>
+            <li>Name what it should avoid: "No long lists unless I ask."</li>
+            <li>Small local models follow short, plain instructions best. A few clear sentences beat a long essay.</li>
+            <li>Read the starters for examples. Open a starter's menu and choose Edit to see its personality.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="model" aria-labelledby="model-title">
+        <h2 id="model-title">Creativity and model</h2>
+        <dl class="defs">
+          <dt>creativity</dt><dd><strong>precise</strong> gives steady, predictable answers. <strong>balanced</strong> is the default. <strong>creative</strong> gives more varied and surprising answers.</dd>
+          <dt>model</dt><dd>the model the bot prefers. <strong>Whatever is loaded</strong> uses the model you have loaded. A bot never switches models on its own.</dd>
+        </dl>
+      </section>
+
+      <section id="chat" aria-labelledby="chat-title">
+        <h2 id="chat-title">Chat with a bot</h2>
+        <p>Each bot has a room. The room holds the bot and its chats. Bots and their chats never appear in Bouncer Chat, which is for plain conversations with a model.</p>
+        <ol class="steps">
+          <li>Open Rebound and click the bot's card to open its room.</li>
+          <li>Start a new chat, or continue one listed under the bot.</li>
+          <li>Type a message and send it. The bot replies in character.</li>
+        </ol>
+        <figure class="shot">
+          <picture><source media="(prefers-color-scheme: dark)" data-scheme="dark" srcset="assets/screens/rebound-room-obsidian.jpg" /><source media="(prefers-color-scheme: light)" data-scheme="light" srcset="assets/screens/rebound-room-light.jpg" /><img src="assets/screens/rebound-room-light.jpg" width="2880" height="1800" loading="lazy" alt="Juno's room: the bot on the left, a chat on the right" /></picture>
+          <figcaption>Juno's room</figcaption>
+        </figure>
+        <p>The bot's personality takes the place of chat presets, and it uses its own sampling. To delete a chat, use its trash icon in the room.</p>
+      </section>
+
+      <section id="manage" aria-labelledby="manage-title">
+        <h2 id="manage-title">Edit, duplicate, reset, delete</h2>
+        <p>Hover a bot's card and open its menu (the three dots):</p>
+        <dl class="defs">
+          <dt>Edit</dt><dd>opens the builder with the bot's current settings.</dd>
+          <dt>Duplicate</dt><dd>makes a copy you can change.</dd>
+          <dt>Reset to original</dt><dd>restores a starter bot to how it shipped. Only starter bots have it.</dd>
+          <dt>Delete</dt><dd>removes the bot and all of its chats. Duplicate a bot first if you might want it back.</dd>
+        </dl>
+      </section>
+
+      <section id="privacy" aria-labelledby="privacy-title">
+        <h2 id="privacy-title">Offline and privacy</h2>
+        <p>Bots run on local models through llama.cpp. Once a model is downloaded, Rebound works with the network off. Bots and their chats are stored on your computer, not in an account, and nothing you type to a bot is sent to a server. See <a href="https://bouncer-ai.pages.dev/privacy.html">Bouncer's privacy notes</a> for the details.</p>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Is Rebound a separate app?</summary>
+            <div><p>No. Rebound is a tab inside Bouncer. Install Bouncer and it is there.</p></div>
+          </details>
+          <details>
+            <summary>Which model should a bot use?</summary>
+            <div><p>Any chat model that runs well on your machine. Bigger models follow a personality more closely; smaller ones answer faster. Leave the model on <strong>Whatever is loaded</strong> to use the one you already have open.</p></div>
+          </details>
+          <details>
+            <summary>Can a bot see my other chats?</summary>
+            <div><p>No. A bot only sees the chat you are in with it.</p></div>
+          </details>
+          <details>
+            <summary>I changed a starter bot. Can I get the original back?</summary>
+            <div><p>Yes. Open the card's menu and choose <strong>Reset to original</strong>.</p></div>
+          </details>
+          <details>
+            <summary>Where do I report a problem?</summary>
+            <div><p>Open an issue on <a href="https://github.com/shankar-sachin/get-bouncer/issues">get-bouncer</a>.</p></div>
+          </details>
+        </div>
+      </section>
+
+      <p class="docs-more">More about Bouncer: <a href="https://bouncer-ai.pages.dev/docs.html#/getting-started">the Bouncer docs</a>.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© Sachin Shankar. All rights reserved.</p>
+      <nav aria-label="footer">
+        <a href="https://bouncer-ai.pages.dev/">Bouncer</a>
+        <a href="https://bouncer-ai.pages.dev/docs.html#/getting-started">Bouncer docs</a>
+        <a href="https://github.com/shankar-sachin/get-bouncer/releases">Releases</a>
+        <a href="https://bouncer-ai.pages.dev/privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

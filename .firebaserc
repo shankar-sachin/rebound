@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "bouncer-af456"
+  },
+  "targets": {
+    "bouncer-af456": {
+      "hosting": {
+        "rebound": ["rebound"]
+      }
+    }
+  }
+}
