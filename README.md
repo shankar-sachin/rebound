@@ -2,6 +2,10 @@
 
 The website for Rebound, the tab in [Bouncer](https://bouncer-ai.pages.dev) where you make your own bots. Live at **https://rebound.web.app**.
 
+- Rebound: https://rebound.web.app
+- Bouncer: https://bouncer-ai.pages.dev
+- Installers: https://getbouncer.pages.dev
+
 - `public/index.html`: the showcase page (starter bots, a face picker, screenshots, install commands).
 - `public/docs.html`: the Rebound docs, served at `/docs`.
 - `public/assets/blob.js`: the bot faces. A plain-JS port of Bouncer's avatar code (`packages/core/src/bots/blob.ts` and `ui/bots/BotAvatar.tsx`), so a seed draws the same blob here as in the app.
