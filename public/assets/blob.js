@@ -145,29 +145,13 @@
     }
   }
 
-  /* The Rebound starter's face: Bouncer's orb with pill eyes, in the orb tokens. */
-  function orb(svg) {
-    svg.setAttribute('viewBox', '0 0 24 24');
-    var id = 'orb' + ++uid;
-    var defs = el('defs', {}, svg);
-    var grad = el('radialGradient', { id: id, cx: 0.34, cy: 0.3, r: 0.78 }, defs);
-    el('stop', { offset: 0, style: 'stop-color: var(--orb-light)' }, grad);
-    el('stop', { offset: 0.42, style: 'stop-color: var(--orb)' }, grad);
-    el('stop', { offset: 1, style: 'stop-color: var(--orb-deep)' }, grad);
-    el('ellipse', { class: 'bot-avatar__ground', cx: 12, cy: 22.6, rx: 6.4, ry: 0.95 }, svg);
+  /* The Rebound starter's face: Rebound's logo, the user's own drawing (a blue speech bubble with pill
+     eyes), shown as-is. The same file as apps/desktop/src/renderer/src/assets/rebound.webp. */
+  var LOGO = '/assets/brand/rebound.webp';
+  function logo(svg) {
+    svg.setAttribute('viewBox', '0 0 100 100');
     var body = el('g', { class: 'bot-avatar__body' }, svg);
-    el('circle', { cx: 12, cy: 12, r: 9.7, fill: 'url(#' + id + ')', 'stroke-width': 0.55, style: 'stroke: var(--orb-edge)' }, body);
-    el('ellipse', { cx: 8.7, cy: 6.5, rx: 3.6, ry: 1.35, transform: 'rotate(-28 8.7 6.5)', opacity: 0.7, style: 'fill: var(--orb-light)' }, body);
-    el('ellipse', { cx: 5.3, cy: 10.2, rx: 0.7, ry: 0.95, transform: 'rotate(-20 5.3 10.2)', opacity: 0.6, style: 'fill: var(--orb-light)' }, body);
-    var eyes = el('g', { class: 'bot-avatar__eyes' }, body);
-    [[10.4, 12.4], [15.9, 11.3]].forEach(function (p) {
-      var x = p[0], y = p[1];
-      var g = el('g', { transform: 'rotate(-6 ' + x + ' ' + y + ')' }, eyes);
-      var eye = el('g', { class: 'bot-avatar__eye' }, g);
-      el('rect', { x: x - 1.35, y: y - 2.45, width: 2.7, height: 4.9, rx: 1.35, style: 'fill: var(--orb-eye)' }, eye);
-      el('circle', { cx: x - 0.35, cy: y - 1.35, r: 0.55, opacity: 0.9, style: 'fill: var(--orb-light)' }, eye);
-      el('circle', { cx: x - 0.6, cy: y - 0.25, r: 0.22, opacity: 0.8, style: 'fill: var(--orb-light)' }, eye);
-    });
+    el('image', { href: LOGO, x: 0, y: 0, width: 100, height: 100 }, body);
   }
 
   /* Draws a bot into an <svg>. spec: { shape: number | 'bouncer', color, eyes }. */
@@ -175,7 +159,7 @@
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     svg.classList.add('bot-avatar');
     if (!svg.dataset.still) svg.classList.add('bot-avatar--animate');
-    if (spec.shape === 'bouncer') return orb(svg);
+    if (spec.shape === 'bouncer') return logo(svg);
     svg.setAttribute('viewBox', '0 0 100 100');
     var n = ++uid;
     var bodyId = 'bot-body-' + n, shineId = 'bot-shine-' + n, clipId = 'bot-clip-' + n;
